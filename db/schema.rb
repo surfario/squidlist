@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830233623) do
+ActiveRecord::Schema.define(version: 20140902234505) do
+
+  create_table "forecasts", force: true do |t|
+    t.date     "date"
+    t.string   "quality"
+    t.integer  "surf_break_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "forecasts", ["surf_break_id"], name: "index_forecasts_on_surf_break_id"
+
+  create_table "interests", force: true do |t|
+    t.string   "title"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "surf_breaks", force: true do |t|
+    t.string   "name"
+    t.text     "mslink"
+    t.text     "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"
