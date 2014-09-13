@@ -1,0 +1,6 @@
+<div class="container">
+  <p> Welcome to squidlist, <%= current_user.username %>!  What are you interested in? </p>
+  <% @interests.each do |t| %>
+    <p><%= t.title %></p>
+  <% end %>
+</div>  

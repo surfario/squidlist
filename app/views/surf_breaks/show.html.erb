@@ -1,0 +1,15 @@
+<%= params %>
+
+<div class="container">
+  <div class="row">
+    <div class="col=md-4">  
+      <% @forecasts.each do |f| %>
+        <div class="media">
+          <h2><%= link_to @surf_break.name, @surf_break.mslink %></h2>
+          <p><%= f.date.strftime("%B %d, %Y") %></p>
+          <p><%= f.quality%></p>
+        </div>  
+      <% end %>
+    </div>  
+  </div>  
+</div>

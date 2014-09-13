@@ -1,0 +1,10 @@
+<h1>Surf Breaks</h1>
+<% @surf_breaks.each do |s| %>
+  <p><%= link_to s.name, surf_break_path(s.id) %></p>
+<% end %>
+
+
+ 
+
+
+
