@@ -6,7 +6,8 @@
             <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
             <p><%= link_to f.surf_break.name, f.surf_break %></p>
             <p><%= f.date.strftime("%B %d, %Y") %></p>
-            <p><%= f.quality %></p>
+            <p>Quality: <%= f.quality %></p>
+            <p>Height: <%= f.height %></p>
             </p>
           </div>
         <% end %>  
