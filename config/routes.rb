@@ -1,7 +1,11 @@
 Squidlist::Application.routes.draw do
+  resources :interests
+  resources :surf_breaks do
+    resources :forecasts, except: [:index]
+  end
+    
   devise_for :users
-  get "welcome/index"
-  get "welcome/about"
+  get 'about' => 'welcome#about'
 
   root to: 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.

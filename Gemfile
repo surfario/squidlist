@@ -29,6 +29,8 @@ gem 'devise'
 
 gem 'figaro'
 
+gem 'whenever', '~>0.9.2'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -40,6 +42,8 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+gem 'httparty'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

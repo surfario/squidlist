@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902234505) do
+ActiveRecord::Schema.define(version: 20140913162804) do
 
   create_table "forecasts", force: true do |t|
     t.date     "date"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140902234505) do
     t.integer  "surf_break_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "spot"
+    t.string   "height"
   end
 
   add_index "forecasts", ["surf_break_id"], name: "index_forecasts_on_surf_break_id"
@@ -36,7 +38,18 @@ ActiveRecord::Schema.define(version: 20140902234505) do
     t.text     "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "spot_id"
   end
+
+  create_table "user_surf_breaks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "surf_break_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_surf_breaks", ["surf_break_id"], name: "index_user_surf_breaks_on_surf_break_id"
+  add_index "user_surf_breaks", ["user_id"], name: "index_user_surf_breaks_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username"
