@@ -18,7 +18,16 @@ class SurfBreaksController < ApplicationController
   end
 
   def edit
+    @surf_break = SurfBreak.find(params[:id])
   end
+
+  def update
+    @surf_break = SurfBreak.find(params[:id])
+    if @surf_break.update_attributes(surf_break_params)
+      redirect_to @surf_break
+    end  
+  end
+    
 
   private
 
