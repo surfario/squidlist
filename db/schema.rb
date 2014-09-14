@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913162804) do
+ActiveRecord::Schema.define(version: 20140913205220) do
 
   create_table "forecasts", force: true do |t|
     t.date     "date"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140913162804) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "spot_id"
+    t.string   "surfpic"
   end
 
   create_table "user_surf_breaks", force: true do |t|

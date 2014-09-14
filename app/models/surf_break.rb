@@ -4,6 +4,8 @@ class SurfBreak < ActiveRecord::Base
   has_many :user_surf_breaks
   has_many :users, through: :user_surf_breaks
 
+    mount_uploader :surfpic, SurfpicUploader
+
   # in user_surf_breaks#index
   # link_to "Follow this surf break", user_surf_breaks_path(surf_break_id: surf_break.id), method: :post
 

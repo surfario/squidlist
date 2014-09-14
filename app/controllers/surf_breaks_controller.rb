@@ -28,7 +28,7 @@ class SurfBreaksController < ApplicationController
     # end  
 
     def surf_break_params
-      params.require(:surf_break)
+      params.require(:surf_break).permit(:surfpic)
     end
     
 end
