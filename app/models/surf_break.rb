@@ -6,6 +6,7 @@ class SurfBreak < ActiveRecord::Base
 
     mount_uploader :surfpic, SurfpicUploader
 
+  
   # in user_surf_breaks#index
   # link_to "Follow this surf break", user_surf_breaks_path(surf_break_id: surf_break.id), method: :post
 
