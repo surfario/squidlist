@@ -2,11 +2,12 @@
   <div class="row">
     <div class="col=md-4"> 
       <h2><%= link_to @surf_break.name, @surf_break.mslink %></h2> 
+      <%= image_tag(@surf_break.surfpic) %>
       <% @forecasts.each do |f| %>
         <div class="media">
           <p><%= f.date.strftime("%B %d, %Y") %></p>
           <p>Quality: <%= f.quality %></p>
-          <p>Height: <%= f.height %></p>
+          <p>Height: <%= f.height %> ft.</p>
         </div>  
       <% end %>
     </div>  
