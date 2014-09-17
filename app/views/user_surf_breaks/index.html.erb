@@ -3,11 +3,9 @@
   <%= link_to "Follow this surf break", user_surf_breaks_path(surf_break_id: surf.id), method: :post %></p>
 <% end %>  
 
-<p> My surf breaks </p>
-<% @surf_breaks.each do |surf| %>  
-  <% if current_user == surf.users %>
-    <p><%= surf.name %>
-  <% end %>
+<b><p> My surf breaks </b></p>
+<% current_user.surf_breaks.each do |s| %>
+  <p><%= s.name %></p>
 <% end %>   
 
 

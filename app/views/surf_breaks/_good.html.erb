@@ -1,7 +1,6 @@
 <div class="container marketing">
   <div class="row"> 
     <% @surf_breaks.each do |surf_break| %>
-      <p style="clear:both"><%= surf_break.name %></p>
       <% surf_break.forecasts.each do |f| %>
         <% if ["3", "4", "5"].include?(f.quality) %>
           <div class="col-lg-4"> 
