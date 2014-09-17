@@ -16,19 +16,14 @@ class SongKickWrapper
       concerts << concert  
     end
     
-    puts concerts  
+    if concerts.any?
+      Concert.delete_all
+
+      concerts.each_with_index do |concert, index|
+        Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date])
+      end
+    end   
   end  
 
-  
-
-  # song = SongKickWrapper.new
-  # song.get_concerts
-
-  # def get_concerts
-  #   username = 'surfario'
-  #   response = HTTParty.get("http://api.songkick.com/api/3.0/users/#{username}/calendar.json?reason=tracked_artist&apikey=#{API_KEY}")  
-    
-  #   concerts = {concert: response["resultsPage"]["results"]["calendarEntry"]["reason"]["trackedArtist"]}
-  # end
 
 end  
