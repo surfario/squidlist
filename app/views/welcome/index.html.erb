@@ -14,7 +14,7 @@
               <img class="img-circle">
                 <%= image_tag(concert.concertpic) %>
               </img> 
-              <p><%= concert.event %></p>
+              <p><%= link_to concert.event, concert %></p>
               <p><%= concert.venue %></p>
             </div>   
           <% end %>

@@ -1,0 +1,20 @@
+<%= form_for(@concert) do |f| %>
+  <div class="form-group">
+    <%= f.label :event %>
+    <%= f.text_field :event, class: 'form-control', placeholder: "Enter event name"%>
+  </div>
+  <% if @concert.concertpic? %>
+    <div class="form-group">
+      <p>Current Concertpic</p>
+      <%= image_tag( @concert.surfpic.url ) %>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :concertpic %>
+    <%= f.file_field :concertpic %>
+    <%= f.hidden_field :concertpic_cache %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Update", class: 'btn btn-success' %>
+  </div>
+<% end %>  

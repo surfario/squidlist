@@ -1,4 +1,5 @@
 Squidlist::Application.routes.draw do
+  resources :concerts
   resources :user_surf_breaks
   resources :interests
   resources :surf_breaks do
