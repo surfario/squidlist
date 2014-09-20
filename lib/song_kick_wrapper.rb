@@ -1,9 +1,6 @@
 class SongKickWrapper
-  # include HTTParty
   require 'songkickr'
 
-  # API_KEY = 'DYk7diydq1KoCzS0'
-  # username = 'surfario'
 
   # inside rake task
   # User.all.each do |user|
