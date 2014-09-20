@@ -1,4 +1,5 @@
 <% @concerts.each do |concert| %>
+  <%= image_tag(concert.concertpic) %>
   <p><%= concert.event %><p>
   <p><%= concert.venue %><p>
 <% end %>  

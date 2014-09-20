@@ -5,10 +5,15 @@ class SongKickWrapper
   # API_KEY = 'DYk7diydq1KoCzS0'
   # username = 'surfario'
 
-  def get_results
+  # inside rake task
+  # User.all.each do |user|
+  #   SongKickWrapper.get_results(user.song_kick_user_name) # SongKickWrapper.get_results('surfario')
+  # end
+
+  def get_results(user_name='surfario')
     # username = user.songkick_name
-    remote = Songkickr::Remote.new 'DYk7diydq1KoCzS0' 
-    results = remote.users_tracked_events_calendar('surfario')
+    remote = Songkickr::Remote.new "#{ENV['SONG_KICK_API_KEY']}"
+    results = remote.users_tracked_events_calendar(user_name)
     
     concerts = []
     results.results.each do |r|
