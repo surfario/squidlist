@@ -1,0 +1,21 @@
+<%= form_for(@artist) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter artist name"%>
+  </div>
+  <% if @artist.artistpic? %>
+    <div class="form-group">
+      <p>Current artistpic</p>
+      <%= image_tag( @artist.artistpic.url ) %>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :artistpic %>
+    <%= f.file_field :artistpic %>
+    <%= f.hidden_field :artistpic_cache %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Update", class: 'btn btn-success' %>
+  </div>
+<% end %>  
+

@@ -13,7 +13,7 @@ class ConcertsController < ApplicationController
   def show
   end
 
-   def update
+  def update
     @concert = Concert.find(params[:id])
     if @concert.update_attributes(concert_params)
       redirect_to @concert

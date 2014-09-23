@@ -3,6 +3,10 @@ class WelcomeController < ApplicationController
     @surf_breaks = current_user && current_user.surf_breaks.any? ? current_user.surf_breaks : SurfBreak.all
     @forecasts = @surf_breaks.collect(&:forecasts).flatten
     @concerts = Concert.all
+    @artists = Artist.all
+
+    @all_events = @forecasts + @concerts
+    @all_events.flatten.sort_by &:date
   end
 
   def about

@@ -8,17 +8,19 @@
         <h2>Your SquidList events this week</h2>
         <%= render 'surf_breaks/good' %>    
         
-        <% @concerts.each do |concert| %>
-          <% if concert.date < Date.today + 7 %>
-            <div class="col-lg-4"> 
-              <img class="img-circle">
-                <%= image_tag(concert.concertpic) %>
-              </img> 
-              <p><%= link_to concert.event, concert %></p>
-              <p><%= concert.venue %></p>
-            </div>   
-          <% end %>
-        <% end %>     
+        <% @artists.each do |artist| %>
+          <% artist.concerts.each do |concert| %>
+            <% if concert.date < Date.today + 7 %>
+              <div class="col-lg-4"> 
+                <img class="img-circle">
+                  <%= image_tag(artist.artistpic) %>
+                </img> 
+                <p><%= link_to concert.event, concert %></p>
+                <p><%= concert.venue %></p>
+              </div>   
+            <% end %>
+          <% end %>  
+        <% end %>  
       </div>
     </div>
   </div>      
