@@ -1,5 +1,5 @@
 <% @artists.each do |artist| %>
   <%= image_tag(artist.artistpic) %>
-  <p><%= artist.name %><p>
+  <p><%= link_to artist.name, artist_path(artist.id) %><p>
 <% end %>  
 
