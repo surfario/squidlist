@@ -12,28 +12,15 @@
          <% if concert.date < Date.today + 7 %>
             <div class="col-lg-4"> 
               <img class="img-circle">
-                <%= image_tag(concert.concertpic) %>
+                <% a = concert.artists %>
+                <% artist = Artist.find_by_name(a) %>
+                <%= image_tag (artist.artistpic) %>
               </img> 
               <p><%= link_to concert.event, concert %></p>
               <p><%= concert.venue %></p>
             </div>   
           <% end %>
         <% end %> 
-
-        
-        <% @artists.each do |artist| %>
-          <% artist.concerts.each do |concert| %>
-            <% if concert.date < Date.today + 7 %>
-              <div class="col-lg-4"> 
-                <img class="img-circle">
-                  <%= image_tag(artist.artistpic) %>
-                </img> 
-                <p><%= link_to concert.event, concert %></p>
-                <p><%= concert.venue %></p>
-              </div>   
-            <% end %>
-          <% end %>  
-        <% end %>  
       </div>
     </div>
   </div>      

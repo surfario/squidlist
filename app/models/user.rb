@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :user_surf_breaks
   has_many :surf_breaks, through: :user_surf_breaks
+
+  has_many :user_concerts
+  has_many :concerts, through: :user_concerts
 end

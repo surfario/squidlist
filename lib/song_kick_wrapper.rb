@@ -25,17 +25,18 @@ class SongKickWrapper
       end
       
       if concerts.any?
-        Concert.delete_all
-
         concerts.each_with_index do |concert, index|
+          # concert = Concert.find_by_event(concert[:event])
+          # unless concert.present?
           concert = Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date], artists: concert[:artists])
-        
+           
 
         # concerts.each_with_index do |concert, index|
         #   concert = Concert.find_by_event(concert[:event])
         #   unless concert.present? 
         #     concert = Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date])
         #   end
+          user.concerts << concert unless user.concerts.include?(concert)
           
           artist = Artist.find_by_name(concert[:artists])
           unless artist.present?
@@ -43,7 +44,6 @@ class SongKickWrapper
           end
         end  
 
-          # user.concerts <<  concert unless user.concerts.include?(concert)
         
       end
     end   

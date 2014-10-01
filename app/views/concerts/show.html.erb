@@ -1,2 +1,5 @@
-<h1>Concerts#show</h1>
-<p>Find me in app/views/concerts/show.html.erb</p>
+<p><%= @concert.event %><p>
+<p><%= @concert.venue %><p>
+<% a = @concert.artists %>
+<% artist = Artist.find_by_name(a) %>
+<p><%= image_tag (artist.artistpic) %></p>
