@@ -1,0 +1,16 @@
+<% if ["3", "4", "5"].include?(forecast.quality) %>
+  <div class="col-lg-4"> 
+    <img class="img-circle">
+      <%= image_tag(forecast.surf_break.surfpic) %>
+    </img>  
+    <p><%= link_to forecast.surf_break.name, forecast.surf_break %></p>
+    <p><%= forecast.date.strftime("%B %d, %Y") %></p>
+    <p>Quality: <%= forecast.quality %></p>
+    <p>Height: <%= forecast.height %> ft.</p>
+    <% if current_user && current_user.surf_breaks.include?(forecast.surf_break) %>
+      <p><%= link_to "Unfollow this surf break", user_surf_break_path(get_user_surf_break_for(forecast.surf_break.id)), method: :delete %></p>
+    <% else %>
+      <p><%= link_to "follow this surf break", user_surf_breaks_path(surf_break_id: forecast.surf_break.id), method: :post %></p>
+    <% end %>
+  </div>
+<% end %>  

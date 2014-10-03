@@ -1,0 +1,10 @@
+ <div class="col-lg-4"> 
+  <img class="img-circle">
+    <% a = concert.artists %>
+    <% artist = Artist.find_by_name(a) %>
+    <%= image_tag (artist.artistpic) %>
+  </img> 
+  <p><%= link_to concert.event, concert %></p>
+  <P><%= concert.date.strftime("%B %d, %Y") %>
+  <p><%= concert.venue %></p>
+</div> 
