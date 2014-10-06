@@ -4,13 +4,25 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Good evening, <%= @user.username %><p>
+    <p>Good afternoon, <%= @user.username %><p>
     <p>
       Here are your Squidlist events for the week:
     </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
+    <% @forecasts.each do |forecast| %>
+      <% if ["3", "4", "5"].include?(forecast.quality) %>
+        <div class="col-lg-4"> 
+          <img class="img-circle">
+            <%= image_tag(forecast.surf_break.surfpic) %>
+          </img>  
+          <p><%= forecast.surf_break.name%></p> 
+          <p><%= forecast.date.strftime("%B %d, %Y") %></p>
+          <p>Quality: <%= forecast.quality %></p>
+          <p>Height: <%= forecast.height %> ft.</p> 
+      <% end %>   
+    <% end %>   
+    <% @concerts.each do |concert| %>
+    
+      <p>To login to the site, just follow this link: <%= @url %>.</p>
     <p>Enjoy and have a great week!</p>
   </body>
 </html>
