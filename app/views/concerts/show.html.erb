@@ -1,5 +1,6 @@
 <p><%= @concert.event %><p>
-<p><%= @concert.venue %><p>
+<p><%= @concert.venue %><p> 
 <% a = @concert.artists %>
 <% artist = Artist.find_by_name(a) %>
 <p><%= image_tag (artist.artistpic) %></p>
+<%= link_to @concert.artists, Artist.find_by_name(a) %> 
