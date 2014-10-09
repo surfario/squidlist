@@ -1,2 +1,9 @@
-<h1>UserConcerts#index</h1>
-<p>Find me in app/views/user_concerts/index.html.erb</p>
+<% @concerts.each do |concert| %>
+  <p><%= concert.event %>
+  <%= link_to "Follow this concert", user_concerts_path(concert_break_id: concert.id), method: :post %></p>
+<% end %>  
+
+<b><p> My concerts </b></p>
+<% current_user.concerts.each do |s| %>
+  <p><%= s.event %></p>
+<% end %>   

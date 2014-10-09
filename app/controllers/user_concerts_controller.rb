@@ -1,5 +1,6 @@
 class UserConcertsController < ApplicationController
   def index
+    @concerts = Concert.all
   end
 
   def show
