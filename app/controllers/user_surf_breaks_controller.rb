@@ -23,7 +23,7 @@ class UserSurfBreaksController < ApplicationController
   def destroy
     @user_surf_break = UserSurfBreak.find(params[:id])
     if @user_surf_break.destroy
-      redirect_to root_path
+      redirect_to :action => :index
     else
       #whatever
     end

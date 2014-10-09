@@ -9,6 +9,6 @@
   <p><%= concert.venue %></p>
   <p> Get Tickets </p>
   <% if current_user && current_user.concerts.include?(concert) %>
-    <p><%= link_to "Unfollow this concert" %><p>
+    <p><%= link_to "Unfollow this concert" %></p>
   <% end %>
 </div> 

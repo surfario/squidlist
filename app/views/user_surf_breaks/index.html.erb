@@ -5,7 +5,8 @@
 
 <b><p> My surf breaks </b></p>
 <% current_user.surf_breaks.each do |s| %>
-  <p><%= s.name %></p>
+  <p><%= s.name %>
+  <%= link_to "Unfollow this surf break", user_surf_break_path(get_user_surf_break_for(s.id)), method: :delete %></p>
 <% end %>   
 
 

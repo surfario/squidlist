@@ -15,10 +15,8 @@ class UserMailer < ActionMailer::Base
     @concerts = concerts.select { |concert| concert.date >= today && concert.date < (today + 7.days)}
     @artists = Artist.all
 
-    # @all_events = @forecasts + @concerts
-    # @all_events.flatten.sort_by &:date
     @user = user
     @url = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Your Squidlist Events for the week of #{today}')
+    mail(to: @user.email, subject: 'Your Squidlist Events for the week')
   end  
 end

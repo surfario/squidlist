@@ -1,6 +1,6 @@
 <% @concerts.each do |concert| %>
   <p><%= concert.event %>
-  <%= link_to "Follow this concert", user_concerts_path(concert_break_id: concert.id), method: :post %></p>
+  <%= link_to "Follow this concert", user_concerts_path(concert_id: concert.id), method: :post %></p>
 <% end %>  
 
 <b><p> My concerts </b></p>
