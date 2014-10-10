@@ -1,4 +1,4 @@
-class SurfBreaks::ForecastsController < ApplicationController
+class ForecastsController < ApplicationController
   def index
   end
 
