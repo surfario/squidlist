@@ -4,7 +4,7 @@
     <% artist = Artist.find_by_name(a) %>
     <%= image_tag (artist.artistpic) %>
   </img> 
-  <p><%= link_to concert.event, concert %></p>
+  <p><%= link_to concert.event, concert.link %></p>
   <P><%= concert.date.strftime("%B %d, %Y") %>
   <p><%= concert.venue %></p>
   <p> Get Tickets </p>

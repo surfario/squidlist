@@ -19,7 +19,7 @@ class SongKickWrapper
       
       concerts = []
       results.results.each do |r|
-        concert = {event: r.event.display_name, venue: r.event.venue.display_name, date: r.event.start, artists: r.event.performances.first.artist.display_name}
+        concert = {event: r.event.display_name, venue: r.event.venue.display_name, date: r.event.start, artists: r.event.performances.first.artist.display_name, link: r.event.uri}
         # ** Need to grab all artists! **
         concerts << concert  
       end
@@ -28,7 +28,7 @@ class SongKickWrapper
         concerts.each_with_index do |concert, index|
           # concert = Concert.find_by_event(concert[:event])
           # unless concert.present?
-          concert = Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date], artists: concert[:artists])
+          concert = Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date], artists: concert[:artists], link: concert[:link])
            
 
         # concerts.each_with_index do |concert, index|

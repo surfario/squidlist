@@ -4,7 +4,11 @@ class SurfBreak < ActiveRecord::Base
   has_many :user_surf_breaks
   has_many :users, through: :user_surf_breaks
 
-    mount_uploader :surfpic, SurfpicUploader
+  mount_uploader :surfpic, SurfpicUploader
+
+  # def surfpic
+  #   self.surfpic.blank? ? '/assets/images/default_surf.jpg' : self.surfpic
+  # end
 
   
   # in user_surf_breaks#index

@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url = 'http://example.com/login'
+    @url = 'http://squidlist.herokuapp.com/'
     mail(to: @user.email, subject: 'Welcome to Squidlist!')
   end  
 
@@ -16,7 +16,7 @@ class UserMailer < ActionMailer::Base
     @artists = Artist.all
 
     @user = user
-    @url = 'http://example.com/login'
+    @url = 'http://squidlist.herokuapp.com/'
     mail(to: @user.email, subject: 'Your Squidlist Events for the week')
   end  
 end

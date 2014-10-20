@@ -4,20 +4,19 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Good afternoon, <%= @user.username %><p>
+    <p>Good morning, <%= @user.username %><p>
     <p>
-      Here are your Squidlist events for the week:
+      Here are your Squidlist events for the week of <%= Date.today %>:
     </p>
     <% @forecasts.each do |forecast| %>
       <% if ["3", "4", "5"].include?(forecast.quality) %> 
-        <p><b><%= forecast.surf_break.name%></b></p> 
+        <p><b><%= forecast.surf_break.name %></b></p> 
         <p><%= forecast.date.strftime("%B %d, %Y") %></p>
-        <p>Quality: <%= forecast.quality %></p>
-        <p>Height: <%= forecast.height %> ft.</p> 
+        <p>Quality: <%= forecast.quality %>, Height: <%= forecast.height %> ft.</p>
       <% end %>   
     <% end %>   
     <% @concerts.each do |concert| %>
-      <p><b><%= concert.event %></b></p>
+      <p><b><%= link_to concert.event, concert.link %></b></p>
       <p><%= concert.venue %></p>
     <% end %>    
 
