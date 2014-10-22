@@ -3,7 +3,7 @@
     <img class="img-circle">
       <%= image_tag(forecast.surf_break.surfpic) %>
     </img>  
-    <p><%= link_to forecast.surf_break.name, forecast.surf_break %></p>
+    <p><%= link_to forecast.surf_break.name, forecast.surf_break, class: "event_object", id: "forecast_#{forecast.surf_break.id}" %></p>
     <p><%= forecast.date.strftime("%B %d, %Y") %></p>
     <p>Quality: <%= forecast.quality %></p>
     <p>Height: <%= forecast.height %> ft.</p>

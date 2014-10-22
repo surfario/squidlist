@@ -4,7 +4,7 @@
       <img class="img-circle">
         <%= image_tag(f.surf_break.surfpic) %>
       </img>  
-      <p><%= link_to f.surf_break.name, f.surf_break %></p>
+      <p><%= link_to f.surf_break.name, f.surf_break, class: "event_object", id: "surf_break_<%= f.surf_break.id %>" %></p>
       <p><%= f.date.strftime("%B %d, %Y") %></p>
       <p>Quality: <%= f.quality %></p>
       <p>Height: <%= f.height %> ft.</p>

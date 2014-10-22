@@ -1,21 +1,14 @@
-<script> 
+<script>
   $(document).ready(function() {
-    var _bm_event = {
-      name: "Squidlist",
-      property_1: "index view",
-      property_2: "user: #{current_user.email}"
-    }
-
-    var _bm_request = new XMLHttpRequest();
-    _bm_request.open("POST", "http://localhost:4000/events.json", true);
-    _bm_request.setRequestHeader('Content-Type', 'application/json');
-    _bm_request.onreadystatechange = function() {
-      // this function runs when the Ajax request changes state.
-      // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-    };
-    _bm_request.send(JSON.stringify(_bm_event));
-  } ); 
+    $(".event_object").on("click", function(e) {
+      e.preventDefault();
+      blocmetrics.track('SURFBREAK', $(this).attr("href"), "<%= current_user.email %>");
+      window.location($(this).attr("href"));
+    });
+  });    
 </script>
+
+
 
   <div class="jumbotron">
     <h1>SquidList</h1>
