@@ -1,8 +1,7 @@
 <script>
   $(document).ready(function() {
     $(".event_object").on("click", function(e) {
-      e.preventDefault();
-      blocmetrics.track('SURFBREAK', $(this).attr("href"), "<%= current_user.email %>");
+      blocmetrics.track('LINK', $(this).attr("href"), "<%= @current_user ? @current_user.email : 'not signed in' %>");
       window.location($(this).attr("href"));
     });
   });    
