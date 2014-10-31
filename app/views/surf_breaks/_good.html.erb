@@ -5,7 +5,7 @@
         <% if ["3", "4", "5"].include?(f.quality) %>
           <div class="col-lg-4"> 
             <img class="img-circle">
-              <%= image_tag(f.surf_break.surfpic) %>
+              <%= image_tag(f.surf_break.surfpic_image) %>
             </img>  
             <p><%= link_to f.surf_break.name, f.surf_break %></p>
             <p><%= f.date.strftime("%B %d, %Y") %></p>

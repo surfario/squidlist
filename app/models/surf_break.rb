@@ -6,9 +6,9 @@ class SurfBreak < ActiveRecord::Base
 
   mount_uploader :surfpic, SurfpicUploader
 
-  # def surfpic
-  #   self.surfpic.blank? ? '/assets/images/default_surf.jpg' : self.surfpic
-  # end
+  def surfpic_image
+    self.surfpic.blank? ? '/assets/images/default_surf.jpg' : self.surfpic
+  end
 
   
   # in user_surf_breaks#index
