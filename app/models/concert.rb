@@ -5,6 +5,6 @@ class Concert < ActiveRecord::Base
     mount_uploader :concertpic, ConcertpicUploader
 
   def concert_image
-    self.concertpic.blank? ? '/assets/images/default_surf.jpg' : self.concertpic
+    self.concertpic.blank? ? '/assets/images/default_concert.jpg' : self.concertpic
   end
 end

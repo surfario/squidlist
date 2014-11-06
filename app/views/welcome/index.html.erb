@@ -14,18 +14,22 @@
     <p>Surf, music, and local events</p>
   </div>
   <div class="container">
-    <div class="row">
-      <div class="md-4">
-        <h2>Your SquidList events this week</h2>
-        <div class="container marketing">
-          <div class="row"> 
-            <% @all_events.each do |e| %>
-              <%= render e %>
-            <% end %>
-          </div>
-        </div> 
+    <% unless @all_events.empty? %>
+      <div class="row">
+        <div class="md-4">
+          <h2>Your SquidList events this week</h2>
+          <div class="container marketing">
+            <div class="row"> 
+              <% @all_events.each do |e| %>
+                <%= render e %>
+              <% end %>
+            </div>
+          </div> 
+        </div>
       </div>
-    </div>
+    <% else %>
+    
+    <% end %>
   </div>  
 
 

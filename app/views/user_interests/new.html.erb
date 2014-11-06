@@ -1,0 +1,21 @@
+<h3>What events are you interested in?</h3>
+
+<%= form_for(@user_interest) do |f| %>
+  <div class="field">
+    <%=f.label "Surfing" %> 
+    <%=f.check_box :surfing %> <br />
+  </div>
+  <div class="field">
+    <%=f.label "Concerts" %>
+    <%=f.check_box :concerts %> <br />
+  </div>
+  <div class="field">
+    <%=f.label "Free Events" %> 
+    <%=f.check_box :free_events %> <br />
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-success" %>  
+  </div>  
+<% end %>  
+
+

@@ -3,6 +3,6 @@ class Artist < ActiveRecord::Base
     mount_uploader :artistpic, ArtistpicUploader
 
   def artistpic_image
-    self.artistpic.blank? ? 'default_surf.jpg' : self.artistpic
+    self.artistpic.blank? ? 'default_concert.jpg' : self.artistpic
   end
 end

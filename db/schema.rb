@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929053223) do
+ActiveRecord::Schema.define(version: 20141031194930) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -73,6 +73,17 @@ ActiveRecord::Schema.define(version: 20140929053223) do
 
   add_index "user_concerts", ["concert_id"], name: "index_user_concerts_on_concert_id"
   add_index "user_concerts", ["user_id"], name: "index_user_concerts_on_user_id"
+
+  create_table "user_interests", force: true do |t|
+    t.boolean  "surfing"
+    t.boolean  "concerts"
+    t.boolean  "free_events"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_interests", ["user_id"], name: "index_user_interests_on_user_id"
 
   create_table "user_surf_breaks", force: true do |t|
     t.integer  "user_id"
