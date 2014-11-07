@@ -93,11 +93,9 @@ SurfBreak.create(
   spot_id: '291'
 )
 
+magic = MagicSeaweedWrapper.new
+magic.get_data
 
-
-surfbreaks = SurfBreak.all
-surfbreaks.each do |surfbreak|
-    #get forecasts
 end
 
 # This file should contain all the record creation needed to seed the database with its default values.
