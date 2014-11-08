@@ -16,3 +16,8 @@
     <%= f.submit "Submit", class: "btn btn-success" %>  
   </div>  
 <% end %> 
+
+<% display = @user_interest.surfing? ? "" : "display:none;" %>
+<div style="<%= display %>">
+  <%= render partial: 'user_surf_breaks/user_surf_breaks' %>
+</div>

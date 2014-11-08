@@ -14,6 +14,7 @@ class UserInterestsController < ApplicationController
 
   def edit
     @user_interest = UserInterest.find(params[:id])
+    @surf_breaks = SurfBreak.all
   end
 
   def create
