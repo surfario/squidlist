@@ -2,11 +2,11 @@
 <%= form_for(@user_interest) do |f| %>
   <div class="field">
     <%=f.label "Surfing" %> 
-    <%=f.check_box :surfing %> <br />
+    <%=f.check_box :surfing, :class => "surf_checkbox" %> <br /> 
   </div>
   <div class="field">
     <%=f.label "Concerts" %>
-    <%=f.check_box :concerts %> <br />
+    <%=f.check_box :concerts, :class => "concert_checkbox" %> <br />
   </div>
   <div class="field">
     <%=f.label "Free Events" %> 
@@ -17,7 +17,15 @@
   </div>  
 <% end %> 
 
-<% display = @user_interest.surfing? ? "" : "display:none;" %>
-<div style="<%= display %>">
-  <%= render partial: 'user_surf_breaks/user_surf_breaks' %>
+<div id="show_surf_breaks", style="display:none">
+  <%= render partial: 'user_surf_breaks/user_surf_breaks' %>  
 </div>
+
+<script>
+$(".surf_checkbox").click(function(){
+  $("#show_surf_breaks").toggle();
+});
+// $(".concert_checkbox").click(function(){
+//   $("#show_songkick").toggle();
+// });
+</script>
