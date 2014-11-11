@@ -10,6 +10,7 @@ class UserInterestsController < ApplicationController
   def new
     @user_interest = UserInterest.new
     @user = current_user
+    @surf_breaks = SurfBreak.all
   end
 
   def edit

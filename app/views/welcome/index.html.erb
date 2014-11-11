@@ -14,7 +14,11 @@
     <p>Surf, music, and local events</p>
   </div>
   <div class="container">
-    <% unless @all_events.empty? %>
+    <% if @all_events.empty? && current_user %>
+      <%= link_to "Set you Interests", edit_user_interest_path(current_user.user_interest) %>
+    <% elsif @all_events.empty? %>
+      <%= link_to "Sign up", new_user_registration_path %> 
+    <% else %>   
       <div class="row">
         <div class="md-4">
           <h2>Your SquidList events this week</h2>
@@ -27,7 +31,6 @@
           </div> 
         </div>
       </div>
-    <% else %>
     
     <% end %>
   </div>  

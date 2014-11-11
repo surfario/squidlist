@@ -3,11 +3,11 @@
 <%= form_for(@user_interest) do |f| %>
   <div class="field">
     <%=f.label "Surfing" %> 
-    <%=f.check_box :surfing %> <br />
+    <%=f.check_box :surfing, class: "surf_checkbox" %> <br />
   </div>
   <div class="field">
     <%=f.label "Concerts" %>
-    <%=f.check_box :concerts %> <br />
+    <%=f.check_box :concerts, class: "concert_checkbox" %> <br />
   </div>
   <div class="field">
     <%=f.label "Free Events" %> 
@@ -18,7 +18,24 @@
   </div>  
 <% end %>  
 
-*** Let user select surfbreaks, after they've ticked surfing as interest (using js) ***
+
+<div id="show_surf_breaks", style="display:none;">
+  <%= render partial: 'user_surf_breaks/user_surf_breaks' %>  
+</div>
+
+<div id="songkick_box", style="display:none;">
+  <p> Enter your songkick id so we can track your favortie concerts <p>
+  <p> Never used songkick? Create an id at <%= link_to "SongKick", "https://www.songkick.com/home" %> </p>  
+</div>
+
+<script>
+$(".surf_checkbox").click(function(){
+  $("#show_surf_breaks").toggle();
+});
+$(".concert_checkbox").click(function(){
+  $("#songkick_box").toggle();
+});
+</script>
 
 
 
