@@ -16,7 +16,11 @@
             <% if current_user %>
               Hello, <%= current_user.username %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %> |  
               <%= link_to "Edit my info", edit_user_registration_path %> |
-              <%= link_to "Update my interests", edit_user_interest_path(current_user.user_interest) %> |
+              <% if current_user.user_interest? %>
+                <%= link_to "Update my interests", edit_user_interest_path(current_user.user_interest) %> |
+              <% else %>
+                <%= link_to "Update my interests", new_user_interest_path %> |
+              <% end %>  
               <%= link_to "This month", next_path %>
             <% else %>
               <%= link_to "Sign In", new_user_session_path %> or
