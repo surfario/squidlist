@@ -8,14 +8,15 @@ class SongKickWrapper
   # end
 
   def get_results(user_name)
-    user = User.find_by_songkick_username(user_name)
+    user = User.find_by_songkick_username(user_name) if user_name
     if user
 
-      # Rails.logger.info ">>>>> user: #{user_name ||= 'wtf'}"
-      remote = Songkickr::Remote.new "#{ENV['SONG_KICK_API_KEY']}"
-      # Rails.logger.info ">>>> remote: #{remote.inspect}"
+      Rails.logger.info ">>>>> user: #{user_name}"
+      
+      remote = Songkickr::Remote.new "#{ENV['SONG_KICK_API_KEY']}"    
+      Rails.logger.info ">>>> remote: #{remote.inspect}"
       results = remote.users_tracked_events_calendar(user_name)
-      # Rails.logger.info ">>>>>> results: #{results.inspect}"
+      Rails.logger.info ">>>>>> results: #{results.inspect}"
       
       concerts = []
       results.results.each do |r|
@@ -26,17 +27,12 @@ class SongKickWrapper
       
       if concerts.any?
         concerts.each_with_index do |concert, index|
-          # concert = Concert.find_by_event(concert[:event])
-          # unless concert.present?
-          concert = Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date], artists: concert[:artists], link: concert[:link])
-           
+          c = Concert.find_by_event(concert[:event])
+          unless c.present?
+            c = Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date], artists: concert[:artists], link: concert[:link])
+          end
 
-        # concerts.each_with_index do |concert, index|
-        #   concert = Concert.find_by_event(concert[:event])
-        #   unless concert.present? 
-        #     concert = Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date])
-        #   end
-          user.concerts << concert unless user.concerts.include?(concert)
+          user.concerts << c unless user.concerts.include?(c)
           
           artist = Artist.find_by_name(concert[:artists])
           unless artist.present?
