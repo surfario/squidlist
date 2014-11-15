@@ -1,5 +1,4 @@
-$(function() {
-  alert("ready");
+$(document).on('page:load', function() {
 
   $(".surf_checkbox").click(function(){
     $("#show_surf_breaks").toggle();
