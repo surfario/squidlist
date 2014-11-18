@@ -4,7 +4,7 @@
       <%= image_tag(forecast.surf_break.surfpic) %>
     </img>  
     <p><%= link_to forecast.surf_break.name, forecast.surf_break, class: "event_object", id: "forecast_#{forecast.surf_break.id}" %></p>
-    <p><%= forecast.date.strftime("%B %d, %Y") %></p>
+    <p><%= forecast.date.strftime("%a, %b %d") %></p>
     <p>Quality: <%= forecast.quality %></p>
     <p>Height: <%= forecast.height %> ft.</p>
     <% if current_user && current_user.surf_breaks.include?(forecast.surf_break) %>

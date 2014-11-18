@@ -23,7 +23,7 @@ class UserConcertsController < ApplicationController
   def destroy
     @user_concert = UserConcert.find(params[:id])
     if @user_concert.destroy
-      redirect_to :action => :index
+      redirect_to :root
     end  
   end
 end

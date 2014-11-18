@@ -1,14 +1,3 @@
-<script>
-  $(document).ready(function() {
-    $(".event_object").on("click", function(e) {
-      blocmetrics.track('LINK', $(this).attr("href"), "<%= @current_user ? @current_user.email : 'not signed in' %>");
-      window.location($(this).attr("href"));
-    });
-  });    
-</script>
-
-
-
   <div class="jumbotron">
     <h1>SquidList</h1>
     <p>Surf, music, and local events</p>

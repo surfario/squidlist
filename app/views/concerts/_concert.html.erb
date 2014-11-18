@@ -5,9 +5,8 @@
     <%= image_tag artist.artistpic_image, class: 'artist_pic' %>
   </img> 
   <p><%= link_to concert.event, concert.link, class: "event_object", id: "concert_#{concert.artists}" %></p>
-  <P><%= concert.date.strftime("%B %d, %Y") %>
+  <P><%= concert.date.strftime(("%a, %b %d")) %>
   <p><%= concert.venue %></p>
-  <p> Get Tickets </p>
   <% if current_user && current_user.concerts.include?(concert) %>
     <p><%= link_to "Unfollow this concert", user_concert_path(get_user_concert_for(concert.id)), method: :delete %></p>
   <% end %>
