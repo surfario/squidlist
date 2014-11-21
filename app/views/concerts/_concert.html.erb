@@ -1,4 +1,4 @@
- <div class="col-lg-4 concert"> 
+ <div class="col-lg-4 concert" id="<%= dom_id(concert) %>"> 
   <img class="img-circle">
     <% a = concert.artists %>
     <% artist = Artist.find_by_name(a) %>
@@ -8,6 +8,7 @@
   <P><%= concert.date.strftime(("%a, %b %d")) %>
   <p><%= concert.venue %></p>
   <% if current_user && current_user.concerts.include?(concert) %>
-    <p><%= link_to "Unfollow this concert", user_concert_path(get_user_concert_for(concert.id)), method: :delete %></p>
+    <p><%= link_to "Unfollow this concert", user_concert_path(get_user_concert_for(concert.id)), method: :delete, remote: true %></p>
   <% end %>
 </div> 
+

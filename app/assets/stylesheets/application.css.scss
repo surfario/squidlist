@@ -23,6 +23,12 @@
   margin-top: 5px;
 }
 
+.col-lg-4 {
+    &.forecast, &.concert {
+      height: 400px;
+    }
+}
+
 .concert {
   img.artist_pic {
     width: 200px;

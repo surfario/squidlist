@@ -1,4 +1,6 @@
 class UserConcertsController < ApplicationController
+  respond_to :html, :js
+
   def index
     @concerts = Concert.all
   end
@@ -23,7 +25,12 @@ class UserConcertsController < ApplicationController
   def destroy
     @user_concert = UserConcert.find(params[:id])
     if @user_concert.destroy
-      redirect_to :root
+      flash[:notice] = "Your concert was removed."
     end  
+    
+    respond_with(@user_concert) do |format|
+      format.html { redirect_to @user_concert }
+    end  
+
   end
 end

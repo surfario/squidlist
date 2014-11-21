@@ -9,10 +9,6 @@
     <%=f.label "Concerts" %>
     <%=f.check_box :concerts, class: "concert_checkbox" %> <br />
   </div>
-  <div class="field">
-    <%=f.label "Free Events" %> 
-    <%=f.check_box :free_events %> <br />
-  </div>
   <div class="actions">
     <%= f.submit "Submit", class: "btn btn-success" %>  
   </div>  
@@ -28,14 +24,6 @@
   <p> Never used songkick? Create an id at <%= link_to "SongKick", "https://www.songkick.com/home" %> </p>  
 </div>
 
-<script>
-$(".surf_checkbox").click(function(){
-  $("#show_surf_breaks").toggle();
-});
-$(".concert_checkbox").click(function(){
-  $("#songkick_box").toggle();
-});
-</script>
 
 
 
