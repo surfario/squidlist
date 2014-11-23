@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031194930) do
+ActiveRecord::Schema.define(version: 20141121210238) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(version: 20141031194930) do
     t.datetime "updated_at"
   end
 
+  create_table "surf_break_locations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "surf_breaks", force: true do |t|
     t.string   "name"
     t.text     "mslink"
@@ -62,7 +68,10 @@ ActiveRecord::Schema.define(version: 20141031194930) do
     t.datetime "updated_at"
     t.string   "spot_id"
     t.string   "surfpic"
+    t.integer  "surf_break_location_id"
   end
+
+  add_index "surf_breaks", ["surf_break_location_id"], name: "index_surf_breaks_on_surf_break_location_id"
 
   create_table "user_concerts", force: true do |t|
     t.integer  "user_id"

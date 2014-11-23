@@ -4,6 +4,15 @@ Forecast.destroy_all
 Artist.destroy_all
 User.destroy_all
 
+#
+SurfBreakLocation.create(
+  name: 'San Francisco'
+)
+
+SurfBreakLocation.create(
+  name: 'San Diego'
+)
+
 
 # Favortie SF/ San Mateo Area break-- Pleasure Point to Bolinas
 
@@ -11,6 +20,7 @@ SurfBreak.create(
   name: 'Ocean Beach', 
   mslink: 'http://magicseaweed.com/Ocean-Beach-Surf-Report/255/', 
   spot_id: '255'
+  surf_break_location_id: '1'
 )
 
 SurfBreak.create(

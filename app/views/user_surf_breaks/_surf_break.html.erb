@@ -1,0 +1,6 @@
+<p><%= surf_break.name %>
+  <% if current_user && current_user.surf_breaks.include?(surf_break) %>
+        <p><%= link_to "Unfollow this surf break", user_surf_break_path(get_user_surf_break_for(surf_break.id)), method: :delete %></p>
+      <% else %>
+        <p><%= link_to "Follow this surf break", user_surf_breaks_path(surf_break_id: surf_break.id), method: :post %></p>
+      <% end %>

@@ -1,6 +1,7 @@
 class UserSurfBreaksController < ApplicationController
   def index
     @surf_breaks = SurfBreak.all
+    @surf_break_locations = SurfBreak_Location.all
   end
 
   def show

@@ -4,6 +4,8 @@ class SurfBreak < ActiveRecord::Base
   has_many :user_surf_breaks
   has_many :users, through: :user_surf_breaks
 
+  belongs_to :surf_break_location
+
   mount_uploader :surfpic, SurfpicUploader
 
   def surfpic_image

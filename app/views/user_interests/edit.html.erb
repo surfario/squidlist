@@ -14,10 +14,13 @@
 <% end %> 
 
 <% display_surf = @user_interest.surfing? ? "" : "display:none;" %>
-<% display_concerts = @user_interest.surfing? ? "" : "display:none;" %>
+<% display_concerts = @user_interest.concerts? ? "" : "display:none;" %>
 
 <div id="show_surf_breaks", style="<%= display_surf %>">
-  <%= render partial: 'user_surf_breaks/user_surf_breaks' %>  
+  <% @surf_break_locations.each do |location| %>
+    <h3><%= location.name %></h3>
+    <%= render partial: 'user_surf_breaks/surf_break', collection: location.surf_breaks %>
+  <% end %> 
 </div>
 
 <div id="songkick_box", style="<%= display_concerts %>">

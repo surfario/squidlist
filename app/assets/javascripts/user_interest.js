@@ -8,5 +8,11 @@ $(document).on('page:load', function() {
     $("#songkick_box").toggle();
   });
 
+  $("#region_1").click(function(){
+    $(alert: "clicked")
+    $("#location_1").toggle();
+  });
+   
+
 });
 

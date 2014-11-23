@@ -11,11 +11,13 @@ class UserInterestsController < ApplicationController
     @user_interest = UserInterest.new
     @user = current_user
     @surf_breaks = SurfBreak.all
+    @surf_break_locations = SurfBreakLocation.all
   end
 
   def edit
     @user_interest = UserInterest.find(params[:id])
     @surf_breaks = SurfBreak.all
+    @surf_break_locations = SurfBreakLocation.all
   end
 
   def create
@@ -24,6 +26,7 @@ class UserInterestsController < ApplicationController
     @user_interest.user = current_user
     Rails.logger.info ">>>> user #{@user.inspect}"
     if @user_interest.save
+      @surf_break_locations = SurfBreakLocation.all
       render :new
     end    
     Rails.logger.info ">>>> user_interest #{@user_interest}"
