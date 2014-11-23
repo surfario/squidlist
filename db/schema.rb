@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121210238) do
+ActiveRecord::Schema.define(version: 20141123204612) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20141121210238) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "songkick"
   end
 
   add_index "user_interests", ["user_id"], name: "index_user_interests_on_user_id"

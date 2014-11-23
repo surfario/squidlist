@@ -18,12 +18,22 @@
 
 <div id="show_surf_breaks", style="<%= display_surf %>">
   <% @surf_break_locations.each do |location| %>
-    <h3><%= location.name %></h3>
-    <%= render partial: 'user_surf_breaks/surf_break', collection: location.surf_breaks %>
+    <div id= "region_<%= location.id %>">
+      <h3><%= location.name %></h3>
+    </div>
+    <div id= "location_<%= location.id %>", style="display:none;">
+      <%= render partial: 'user_surf_breaks/surf_break', collection: location.surf_breaks %>
+    </div>
   <% end %> 
 </div>
 
 <div id="songkick_box", style="<%= display_concerts %>">
-  <p> Enter your songkick id so we can track your favortie concerts <p>
+  <h3> Concerts </h3>
+  <p> Update your songkick id below <p>
+    <%= form_for(@user_interest) do |f| %>
+      <%= f.label "Songkick Username" %>
+      <%= f.text_field :songkick, autofocus: true %>
+      <%= f.submit "Submit" %>
+    <% end %> 
   <p> Create an id at <%= link_to "SongKick", "https://www.songkick.com/home" %> </p>  
 </div>

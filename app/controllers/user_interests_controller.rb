@@ -46,7 +46,7 @@ class UserInterestsController < ApplicationController
   private
 
   def user_interest_params
-    params.require(:user_interest).permit(:surfing, :concerts, :free_events, :user)
+    params.require(:user_interest).permit(:surfing, :concerts, :free_events, :songkick, :user)
   end  
 
 end

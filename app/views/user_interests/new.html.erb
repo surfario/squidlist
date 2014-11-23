@@ -30,6 +30,11 @@
 
 <div id="songkick_box", style="display:none;">
   <p> Enter your songkick id so we can track your favortie concerts <p>
+  <%= form_for(@user_interest) do |f| %>
+    <%= f.label "Songkick Username" %>
+    <%= f.text_field :songkick, autofocus: true %>
+    <%= f.submit "Submit" %>
+  <% end %>   
   <p> Never used songkick? Create an id at <%= link_to "SongKick", "https://www.songkick.com/home" %> </p>  
 </div>
 
