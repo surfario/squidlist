@@ -1,7 +1,7 @@
 class UserSurfBreaksController < ApplicationController
   def index
     @surf_breaks = SurfBreak.all
-    @surf_break_locations = SurfBreak_Location.all
+    # @surf_break_locations = SurfBreak_Location.all
   end
 
   def show
@@ -17,14 +17,14 @@ class UserSurfBreaksController < ApplicationController
     surf_break = SurfBreak.find(params[:surf_break_id])
     surf_break.users << current_user
     if surf_break.save
-      redirect_to :action => :index
+      redirect_to :root
     end    
   end
 
   def destroy
     @user_surf_break = UserSurfBreak.find(params[:id])
     if @user_surf_break.destroy
-      redirect_to :action => :index
+      redirect_to :root
     else
       #whatever
     end

@@ -5,7 +5,7 @@
         <%= image_tag(f.surf_break.surfpic_image) %>
       </img>  
       <p><%= link_to f.surf_break.name, f.surf_break, class: "event_object", id: "surf_break_<%= f.surf_break.id %>" %></p>
-      <p><%= f.date.strftime("%B %d, %Y") %></p>
+      <p><%= f.date.strftime("%a, %b %d") %></p>
       <p>Quality: <%= f.quality %></p>
       <p>Height: <%= f.height %> ft.</p>
       <% if current_user && current_user.surf_breaks.include?(surf_break) %>

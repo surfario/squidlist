@@ -5,7 +5,7 @@
       <%= image_tag(@surf_break.surfpic) %>
       <% @forecasts.each do |f| %>
         <div class="media">
-          <p><%= f.date.strftime("%B %d, %Y") %></p>
+          <p><%= f.date.strftime("%a, %b %d") %></p>
           <p>Quality: <%= f.quality %></p>
           <p>Height: <%= f.height %> ft.</p>
         </div>  

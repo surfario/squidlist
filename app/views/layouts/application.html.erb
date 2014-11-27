@@ -30,5 +30,10 @@
 
   <%= yield %>
 
+    <div>
+      <% if current_user %>
+        <%= link_to "My Surf Breaks", user_surf_breaks_path(current_user.user_surf_breaks) %> | <%= link_to "My Concerts", user_concerts_path(current_user.user_concerts) %>
+      <% end %>  
+
   </body>
 </html>
