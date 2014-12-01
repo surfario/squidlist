@@ -1,15 +1,15 @@
 set :environment, "development"
 set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
-every 8.hours do
+every 6.hours do
   rake "collect_forecast"
 end  
 
-every 1.day do
+every 1.day, :at => '9:00 am' do
   rake "collect_concerts"
 end  
 
-every 7.days do
+every 7.days, at: '10:00 am' do
   rake "send_email"
 end  
 

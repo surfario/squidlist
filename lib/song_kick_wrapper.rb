@@ -8,7 +8,9 @@ class SongKickWrapper
   # end
 
   def get_results(user_name)
-    user = User.find_by_songkick_username(user_name) if user_name
+  
+  #  user = User.find_by_songkick_username(user_name) if user_name
+  user = UserInterest.find_by_songkick(user_name).user if user_name
     if user
 
       Rails.logger.info ">>>>> user: #{user_name}"
