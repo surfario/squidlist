@@ -20,7 +20,6 @@ SurfBreak.create(
   name: 'Ocean Beach', 
   mslink: 'http://magicseaweed.com/Ocean-Beach-Surf-Report/255/', 
   spot_id: '255'
-  surf_break_location_id: '1'
 )
 
 SurfBreak.create(
