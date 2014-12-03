@@ -1,0 +1,1 @@
+$("#<%= dom_id(@surf_break) %>").html("<%= escape_javascript(link_to 'Unfollow this surf break', user_surf_break_path(get_user_surf_break_for(@surf_break.id)), method: :delete) %>");
