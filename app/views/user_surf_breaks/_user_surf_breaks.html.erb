@@ -1,5 +1,4 @@
 <% @surf_breaks.each do |surf| %>
-  <p><%= surf.surf_break_location.name %>
   <p><%= surf.name %>
   <%= link_to "Follow this surf break", user_surf_breaks_path(surf_break_id: surf.id), method: :post %></p>
 <% end %> 

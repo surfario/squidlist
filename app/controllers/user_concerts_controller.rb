@@ -2,7 +2,10 @@ class UserConcertsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @concerts = Concert.all
+    #@concerts = Concert.all
+    @concerts = []
+    today = Date.today
+    @concerts = Concert.select { |concert| concert.date >= today }
   end
 
   def show
