@@ -19,8 +19,9 @@
 
 <div id="show_surf_breaks", style="<%= display_surf %>">
   <% @surf_break_locations.each do |location| %>
-    <div id= "region_<%= location.id %>">
+    <div id= "region_<%= location.id %>" class="clickable_region">
       <h3><%= location.name %></h3>
+
     </div>
     <div id= "location_<%= location.id %>", style="display:none;">
       <%= render partial: 'user_surf_breaks/surf_break', collection: location.surf_breaks %>
