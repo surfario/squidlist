@@ -8,11 +8,7 @@
   <div class="field">
     <%=f.label "Concerts" %>
     <%=f.check_box :concerts, class: "concert_checkbox" %> <br />
-  </div>
-  <div class="actions">
-    <%= f.submit "Submit", class: "btn btn-success" %>  
   </div>  
-<% end %>  
 
 <% display_surf = @user_interest.surfing? ? "" : "display:none;" %>
 <% display_concerts = @user_interest.concerts? ? "" : "display:none;" %>
@@ -21,7 +17,6 @@
   <% @surf_break_locations.each do |location| %>
     <div id= "region_<%= location.id %>" class="clickable_region">
       <h3><%= location.name %></h3>
-
     </div>
     <div id= "location_<%= location.id %>", style="display:none;">
       <%= render partial: 'user_surf_breaks/surf_break', collection: location.surf_breaks %>
@@ -31,13 +26,14 @@
 
 <div id="songkick_box", style="display:none;">
   <p> Enter your songkick id so we can track your favortie concerts <p>
-  <%= form_for(@user_interest) do |f| %>
     <%= f.label "Songkick Username" %>
-    <%= f.text_field :songkick, autofocus: true %>
-    <%= f.submit "Submit" %>
-  <% end %>   
+    <%= f.text_field :songkick, autofocus: true %>   
   <p> Never used songkick? Create an id at <%= link_to "SongKick", "https://www.songkick.com/home" %> </p>  
 </div>
+<div class="actions">
+  <%= f.submit "Submit", class: "btn btn-success" %>  
+</div>  
+<% end %> 
 
 
 

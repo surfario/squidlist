@@ -2,7 +2,7 @@
   <img class="img-circle">
     <% a = concert.artists %>
     <% artist = Artist.find_by_name(a) %>
-    <%= image_tag artist.artistpic_image, class: 'artist_pic' %>
+    <%= image_tag artist.link, class: 'artist_pic' %>
   </img> 
   <p><%= link_to concert.event, concert.link, class: "event_object", id: "concert_#{concert.artists}" %></p>
   <P><%= concert.date.strftime(("%a, %b %d")) %>

@@ -8,10 +8,6 @@
     <%=f.label "Concerts" %>
     <%=f.check_box :concerts, class: "concert_checkbox" %> <br />
   </div>
-  <div class="actions">
-    <%= f.submit "Submit", class: "btn btn-success" %>  
-  </div>  
-<% end %> 
 
 <% display_surf = @user_interest.surfing? ? "" : "display:none;" %>
 <% display_concerts = @user_interest.concerts? ? "" : "display:none;" %>
@@ -22,7 +18,6 @@
       <h3><%= location.name %></h3>
     </div>
     <div id= "location_<%= location.id %>", style="display:none;">
-      <p> this is where the stuff will be </p>
       <%= render partial: 'user_surf_breaks/surf_break', collection: location.surf_breaks %>
     </div>
   <% end %> 
@@ -31,10 +26,11 @@
 <div id="songkick_box", style="<%= display_concerts %>">
   <h3> Concerts </h3>
   <p> Update your songkick id below <p>
-    <%= form_for(@user_interest) do |f| %>
       <%= f.label "Songkick Username" %>
       <%= f.text_field :songkick, autofocus: true %>
-      <%= f.submit "Submit" %>
-    <% end %> 
   <p> Create an id at <%= link_to "SongKick", "https://www.songkick.com/home" %> </p>  
 </div>
+<div class="actions">
+  <%= f.submit "Submit", class: "btn btn-success" %>  
+</div>  
+<% end %> 

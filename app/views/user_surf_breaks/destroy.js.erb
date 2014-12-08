@@ -1,3 +1,1 @@
-$("#forecast_<%= @user_surf_break.forecasts.id %>").hide();
-
-//one click should hide mulitple forecasts (since we're unfollowing an entire surf break)
+$("#<%= dom_id(@user_surf_break) %>").html("<%= escape_javascript(link_to 'Follow this surf break', user_surf_break_path(get_user_surf_break_for(@surf_break.id)), method: :post, remote: true) %>");

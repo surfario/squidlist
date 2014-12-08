@@ -7,33 +7,40 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <li><%= link_to "SquidList", root_path %><li>
-        
-          <div class="pull-right user-info">
-            <% if current_user %>
-              Hello, <%= current_user.username %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %> |  
-              <%= link_to "Edit my info", edit_user_registration_path %> |
-              <% if current_user.user_interest %>
-                <%= link_to "Update my interests", edit_user_interest_path(current_user.user_interest) %> |
+    <div id="wrap">
+      <div class="container">
+        <ul class="nav nav-tabs">
+          <li><%= link_to "SquidList", root_path %><li>
+          
+            <div class="pull-right user-info">
+              <% if current_user %>
+                Hello, <%= current_user.username %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %> |  
+                <%= link_to "Edit my info", edit_user_registration_path %> |
+                <% if current_user.user_interest %>
+                  <%= link_to "Update my interests", edit_user_interest_path(current_user.user_interest) %> |
+                <% else %>
+                  <%= link_to "Update my interests", new_user_interest_path %> |
+                <% end %>  
+                <%= link_to "This month", next_path %>
               <% else %>
-                <%= link_to "Update my interests", new_user_interest_path %> |
-              <% end %>  
-              <%= link_to "This month", next_path %>
-            <% else %>
-              <%= link_to "Sign In", new_user_session_path %> or
-              <%= link_to "Sign Up", new_user_registration_path %>
-            <% end %>
-          </div>
-      </ul>
+                <%= link_to "Sign In", new_user_session_path %> or
+                <%= link_to "Sign Up", new_user_registration_path %>
+              <% end %>
+            </div>
+        </ul>
 
-  <%= yield %>
+    <%= yield %>
 
-    <div>
-      <% if current_user %>
-        <%= link_to "My Surf Breaks", user_surf_breaks_path(current_user.user_surf_breaks) %> | <%= link_to "My Concerts", user_concerts_path(current_user.user_concerts) %>
-      <% end %>  
+      <div id="push"></div>
+    </div>  
+
+    <div id="footer">
+      <div class="container">
+        <% if current_user %>
+          <%= link_to "My Surf Breaks", user_surf_breaks_path(current_user.user_surf_breaks) %> | <%= link_to "My Concerts", user_concerts_path(current_user.user_concerts) %>
+        <% end %>  
+      </div>
+    </div>     
 
   </body>
 </html>
