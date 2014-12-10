@@ -1,5 +1,7 @@
 Squidlist::Application.routes.draw do
-  resources :user_interests
+  resources :user_interests do 
+    get :set, on: :collection
+  end
   resources :user_concerts
   resources :artists
   resources :concerts
@@ -12,6 +14,7 @@ Squidlist::Application.routes.draw do
   devise_for :users
   get 'next' => 'welcome#next'
   get 'about' => 'welcome#about'
+  #get 'user_interests/set_interests' => 'user_interests#set_interests', :as => :set_interests
 
   root to: 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -21,6 +24,7 @@ Squidlist::Application.routes.draw do
   # root 'welcome#index'
 
   # Example of regular route:
+
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

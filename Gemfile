@@ -17,6 +17,8 @@ end
 
 gem 'bootstrap-sass', '~> 3.2.0.1'
 
+gem 'bootstrap-modal-rails'
+
 gem 'sass-rails', '~> 4.0.2'
 
 # Use Uglifier as compressor for JavaScript assets
