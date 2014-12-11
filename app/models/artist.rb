@@ -5,7 +5,7 @@ class Artist < ActiveRecord::Base
   after_create :get_artist_pic_link, if: :artistpic_image?
 
   def artistpic_image_url
-    #self.artistpic.blank? ? link : self.artistpic.url  # <img src='#{artistpic_image_url}' />
+    self.artistpic.blank? ? link : self.artistpic.url  
   end
 
   private
