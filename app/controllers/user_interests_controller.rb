@@ -43,6 +43,13 @@ class UserInterestsController < ApplicationController
     end  
   end
 
+  def set
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end    
+
   private
 
   def user_interest_params
