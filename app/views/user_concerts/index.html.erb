@@ -1,9 +1,12 @@
-<% @concerts.each do |concert| %>
+<b><p> My concerts </b></p>
+<% @user_concerts.each do |s| %>
+  <p><%= s.event %>
+  <%= link_to "Unfollow this concert", user_concert_path(get_user_concert_for(s.id)), method: :delete %></p>
+<% end %>  
+
+<b><p> Add more concerts </b></p>
+<% @more_concerts.each do |concert| %>
   <p><%= concert.event %>
   <%= link_to "Follow this concert", user_concerts_path(concert_id: concert.id), method: :post %></p>
 <% end %>  
-
-<b><p> My concerts </b></p>
-<% current_user.concerts.each do |s| %>
-  <p><%= s.event %></p>
-<% end %>   
+ 

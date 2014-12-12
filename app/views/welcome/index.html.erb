@@ -7,7 +7,7 @@
   </div>
   <div class="container">
     <% if @all_events.empty? && current_user %>
-      <p><%= link_to "Set you Interests", new_user_interest_path %></p>
+      <p><%= link_to "Set your Interests", new_user_interest_path %></p>
       <%#= link_to "Set your Interests (Modal)", set_user_interests_path, {:remote=> true, 'data-toggle' => "modal", 'data-target' => '#modal-window'} %>
       <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
       <%# Display an awesome default image of what users wil see when they join, underneath #%>

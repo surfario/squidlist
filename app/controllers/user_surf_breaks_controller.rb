@@ -2,7 +2,8 @@ class UserSurfBreaksController < ApplicationController
   respond_to :html, :js
 
   def index
-    @surf_breaks = SurfBreak.all
+    @user_surf_breaks = current_user.surf_breaks.any? ? current_user.surf_breaks : SurfBreak.all
+    @other_surf_breaks = SurfBreak.all - current_user.surf_breaks
     # @surf_break_locations = SurfBreak_Location.all
   end
 

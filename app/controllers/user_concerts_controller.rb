@@ -5,7 +5,11 @@ class UserConcertsController < ApplicationController
     #@concerts = Concert.all
     @concerts = []
     today = Date.today
-    @concerts = Concert.select { |concert| concert.date >= today }
+    @user_concerts = current_user.concerts.any? ? current_user.concerts.select { |concert| concert.date >= today } : Concert.select { |concert| concert.date >= today }
+    @more_concerts = Concert.select { |concert| concert.date >= today } - current_user.concerts.select { |concert| concert.date >= today }
+
+    #@user_surf_breaks = current_user.surf_breaks.any? ? current_user.surf_breaks : SurfBreak.all
+    #@other_surf_breaks = SurfBreak.all - current_user.surf_breaks
   end
 
   def show
