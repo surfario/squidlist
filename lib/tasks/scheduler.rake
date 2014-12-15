@@ -1,7 +1,9 @@
 task send_email: :environment do 
-  User.find_each do |user|
-    UserMailer.weekly_email(user).deliver
-  end  
+  if Time.now.monday?
+    User.find_each do |user|
+      UserMailer.weekly_email(user).deliver
+    end
+  end    
 end
 
 task collect_forecast: :environment do 

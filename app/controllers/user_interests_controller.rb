@@ -27,7 +27,7 @@ class UserInterestsController < ApplicationController
     Rails.logger.info ">>>> user #{@user.inspect}"
     if @user_interest.save
       @surf_break_locations = SurfBreakLocation.all
-      render :new
+      redirect_to :root
     end    
     Rails.logger.info ">>>> user_interest #{@user_interest}"
   end
