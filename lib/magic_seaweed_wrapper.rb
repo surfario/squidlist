@@ -1,8 +1,6 @@
 class MagicSeaweedWrapper
   include HTTParty
 
-  API_KEY = '8yUmsaXT7f2YvJ57cU9bIys2RB1y4t3C'
-
   # magic = MagicSeaweedWrapper.new
   # magic.get_data
 
@@ -10,7 +8,7 @@ class MagicSeaweedWrapper
 
     SurfBreak.all.each do |surf_break|
       spot_id = surf_break.spot_id 
-      response = HTTParty.get("http://magicseaweed.com/api/#{API_KEY}/forecast/?spot_id=#{spot_id}")
+      response = HTTParty.get("http://magicseaweed.com/api/#{ENV['MAGICSW_API_KEY']}/forecast/?spot_id=#{spot_id}")
 
       forecasts = []
       [3,11,19,27,35].each do |idx|
