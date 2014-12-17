@@ -9,9 +9,11 @@ class MagicSeaweedWrapper
     SurfBreak.all.each do |surf_break|
       spot_id = surf_break.spot_id 
       response = HTTParty.get("http://magicseaweed.com/api/#{ENV['MAGICSW_API_KEY']}/forecast/?spot_id=#{spot_id}")
+      Rails.logger.info ">>>>>> response: #{response.inspect}"
 
       forecasts = []
       [3,11,19,27,35].each do |idx|
+        Rails.logger.info ">>>>>>> response[#{idx}]: #{response[idx].inspect}"
         forecast = {local_time_stamp: response[idx]["localTimestamp"], solid_rating: response[idx]["solidRating"], max_breaking_height: response[idx]["swell"]["maxBreakingHeight"]}
         forecasts << forecast
       end
