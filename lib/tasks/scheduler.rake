@@ -1,5 +1,5 @@
 task send_email: :environment do 
-  if Time.now.monday?
+  if Date.today.monday?
     User.find_each do |user|
       UserMailer.weekly_email(user).deliver
     end

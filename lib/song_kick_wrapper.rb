@@ -33,7 +33,8 @@ class SongKickWrapper
             c = Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date], artists: concert[:artists], link: concert[:link])
           end
 
-          user.concerts << c unless user.concerts.include?(c)
+          user.concerts << c unless user.concerts.include?(c)#and unfollowed concerts; create table of unfollowed concerts
+
           
           artist = Artist.find_by_name(concert[:artists])
           unless artist.present?
