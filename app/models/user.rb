@@ -10,5 +10,7 @@ class User < ActiveRecord::Base
   has_many :user_concerts
   has_many :concerts, through: :user_concerts
 
+  has_many :unfollow_concerts
+
   has_one :user_interest
 end

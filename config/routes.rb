@@ -1,4 +1,7 @@
 Squidlist::Application.routes.draw do
+  get "unfollow_concerts/index"
+  get "unfollow_concerts/create"
+  get "unfollow_concerts/destory"
   resources :user_interests do 
     get :set, on: :collection
   end

@@ -18,7 +18,7 @@ class UserInterest < ActiveRecord::Base
     concerts = []
     results.results.each do |r|
       concert = {event: r.event.display_name, venue: r.event.venue.display_name, date: r.event.start, artists: r.event.performances.first.artist.display_name, link: r.event.uri}
-      # ** Need to grab all artists! **
+      # Note: only grabbing 1st artist
       concerts << concert  
     end
     
@@ -29,7 +29,7 @@ class UserInterest < ActiveRecord::Base
           c = Concert.create(event: concert[:event], venue: concert[:venue], date: concert[:date], artists: concert[:artists], link: concert[:link])
         end
 
-        user.concerts << c unless user.concerts.include?(c)
+        user.concerts << c unless user.concerts.include?(c) || user.unfollow_concerts.pluck(:concert_id).include?(c.id) 
         
         artist = Artist.find_by_name(concert[:artists])
         unless artist.present?

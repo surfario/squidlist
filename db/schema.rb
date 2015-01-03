@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212215451) do
+ActiveRecord::Schema.define(version: 20141231202857) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 20141212215451) do
   end
 
   add_index "surf_breaks", ["surf_break_location_id"], name: "index_surf_breaks_on_surf_break_location_id"
+
+  create_table "unfollow_concerts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "concert_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "unfollow_concerts", ["concert_id"], name: "index_unfollow_concerts_on_concert_id"
+  add_index "unfollow_concerts", ["user_id"], name: "index_unfollow_concerts_on_user_id"
 
   create_table "user_concerts", force: true do |t|
     t.integer  "user_id"
