@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+
     @surf_breaks, @forecasts, @concerts = [], [], []
     if current_user && current_user.user_interest
         @surf_breaks = current_user.surf_breaks if current_user.user_interest.surfing?
@@ -8,6 +9,13 @@ class WelcomeController < ApplicationController
         #Rails.logger.info ">>>> today: #{today.inspect}"
         #Rails.logger.info ">>>>> User interests: #{current_user.user_interest.inspect}"
         @concerts = current_user.concerts.select { |concert| concert.date >= today && concert.date < (today + 7.days)} if current_user.user_interest.concerts? 
+    else
+        @surf_breaks = SurfBreak.select { |surf| surf.surf_break_location_id = 1}
+        @forecasts = @surf_breaks.collect(&:forecasts).flatten
+        today = Date.today
+        #Rails.logger.info ">>>> today: #{today.inspect}"
+        #Rails.logger.info ">>>>> User interests: #{current_user.user_interest.inspect}"
+        @concerts = Concert.select { |concert| concert.date >= today && concert.date < (today + 7.days)}
 
         #Rails.logger.info ">>>>>> concerts: #{@concerts.inspect}"
     end
