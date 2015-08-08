@@ -1,12 +1,32 @@
-<b><p> My concerts </b></p>
-<% @user_concerts.each do |s| %>
-  <p><%= s.event %>
-  <%= link_to "Unfollow this concert", user_concert_path(get_user_concert_for(s.id)), method: :delete %></p>
-<% end %>  
+<div class="container">
+  <div class="row">
+    <div class="md-4">
+      <b><p> My concerts </b></p>
+      <div class="container marketing">
+        <div class="row"> 
+          <% @user_concerts.each do |s| %>
+            <div class="col-lg-4 concert" id="<%= dom_id(s) %>"> 
+              <img class="img-circle">
+                <% a = s.artists %>
+                <% artist = Artist.find_by_name(a) %>
+                <%# image_tag artist.link, class: 'artist_pic' %>
+                <img src='<%=artist.artistpic_image_url %>' class='artist_pic'>
+              </img> 
+              <p><%= link_to s.event, s.link, class: "event_object", id: "s_#{s.artists}" %></p>
+              <P><%= s.date.strftime(("%a, %b %d")) %>
+              <p><%= s.venue %></p>
+              <%= link_to "Unfollow this concert", user_concert_path(get_user_concert_for(s.id)), method: :delete %></p>
+          <% end %>  
 
-<b><p> Add more concerts </b></p>
-<% @more_concerts.each do |concert| %>
-  <p><%= concert.event %>
-  <%= link_to "Follow this concert", user_concerts_path(concert_id: concert.id), method: :post %></p>
-<% end %>  
+            <b><p> Add more concerts </b></p>
+            <% @more_concerts.each do |concert| %>
+              <p><%= concert.event %>
+              <%= link_to "Follow this concert", user_concerts_path(concert_id: concert.id), method: :post %></p>
+            <% end %>  
+            </div>
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+</div>          
  

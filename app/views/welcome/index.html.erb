@@ -1,6 +1,6 @@
   <div class="jumbotron">
     <h1>SquidList</h1>
-    <p>Your Personal Surf and Music Calendar</p>
+    <p>Your Surf and Music Calendar</p>
     <div class= "pull-right", style= "margin-top: -184px;">
       <img src='assets/squid_list.jpg' %>
     </div>  
@@ -10,13 +10,12 @@
       <p><%= link_to "Set your Interests", new_user_interest_path %></p>
       <%#= link_to "Set your Interests (Modal)", set_user_interests_path, {:remote=> true, 'data-toggle' => "modal", 'data-target' => '#modal-window'} %>
       <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-      <%# Display an awesome default image of what users wil see when they join, underneath #%>
     <% elsif current_user.nil? %>
-      <h2><i><%= link_to "Sign up", new_user_registration_path %></h2></i> 
-      <div class="row">
-        <div class="md-4">
-          <div class="container marketing">
-            <div class="row"> 
+      <h2><i><%= link_to "Sign up", new_user_registration_path %></h2></i> <p>Track your favorite breaks and artists</p>
+    <div class="row">
+      <div class="md-4">
+        <div class="container marketing">
+          <div class="row"> 
               <% @all_events.each do |e| %>
                 <%= render e %>
               <% end %>
